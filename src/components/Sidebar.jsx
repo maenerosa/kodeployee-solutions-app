@@ -1,6 +1,6 @@
 import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-import { MdLogout } from "react-icons/md";
+import { MdLogout, MdDashboard, MdPerson3, MdSpeakerNotes } from "react-icons/md";
 
 function Sidebar() {
   return (
@@ -11,28 +11,40 @@ function Sidebar() {
         className="logo object-scale-down h-20  w-40 top-0"
       />
       <nav className="flex-grow">
-        <ul className="space-y-2">
-          <li className="p-2 text-center hover:bg-purple-700">
-            <Link to="/dashboard" className="text-black-500">
-              Dashboard
-            </Link>
-          </li>
-          <li className="p-2 text-center hover:bg-purple-700">
+        <ul >
+        <li className="p-2 text-center hover:bg-purple-700 ">
+      <Link to="/dashboard" className="text-black-500">
+        <div className="text-purple-700 text-l hover:text-white ml-2">
+          <MdDashboard className="inline-block mr-2" />
+          Dashboard
+        </div>
+      </Link>
+    </li>
+          <li className="p-2 text-center hover:bg-purple-700 ">
             <Link to="/employee" className="text-black-500">
-              Employee
+            <div className="text-purple-700 text-l hover:text-white">
+          <MdPerson3 className="inline-block mr-2" />
+          Employee
+        </div>
             </Link>
           </li>
-          <li className="p-2 text-center hover:bg-purple-700">
+          <li className="p-2 text-center hover:bg-purple-700 ">
             <Link to="/leave" className="text-black-500">
-              Leave
+            <div className="text-purple-700 text-l hover:text-white mr-8">
+          <MdSpeakerNotes className="inline-block mr-2" />
+          Leave
+        </div>
             </Link>
           </li>
         </ul>
       </nav>
-      <footer className="p-6 text-black">
-        <Link to="/logout" className="flex items-center pb-5 text-purple-700">
-          <MdLogout className="text-2xl" />
-          <p className="ml-2 ">Logout</p>
+      <footer className="p-6 text-black ">
+        <Link to="/logout" className="flex items-center pb-5">
+          <div className=" text-purple-700">
+          <MdLogout className="inline-block mr-2 " />
+         Logout
+          </div>
+          
         </Link>
         <p className="text-xs">© 2023 Kodeployee</p>
       </footer>

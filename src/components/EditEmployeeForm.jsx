@@ -11,7 +11,7 @@ function EditEmployeeForm({
 }) {
   const { employees, setEmployees } = useContext(EmployeeContext);
   const [newEmployee, setNewEmployee] = useState(employee);
-  const { id, firstname, middlename, lastname, number, email, gender, dob } =
+  const { id, name, number, email, gender, dob } =
     newEmployee;
   const fileInputRef = useRef(null);
 
@@ -20,9 +20,7 @@ function EditEmployeeForm({
     setLoading(true);
 
     const updatedEmployee = new FormData();
-    updatedEmployee.append("firstname", firstname);
-    updatedEmployee.append("middlename", middlename);
-    updatedEmployee.append("lastname", lastname);
+    updatedEmployee.append("name", name);
     updatedEmployee.append("number", number);
     updatedEmployee.append("email", email);
     updatedEmployee.append("gender", gender);
@@ -54,9 +52,10 @@ function EditEmployeeForm({
 
   return (
     <form
-      className="flex flex-col gap-4 p-4 border-solid border-2 border-slate-500"
+      className="flex flex-col gap-4 p-4 border-solid border-2 border-slate-500 fixed bottom-3 right-10 top-24 rounded-lg w-1/5 h-3/4 shadow-md"
       onSubmit={handleUpdate}
     >
+      <div className="gap-4 flex flex-col">
       <div className="flex flex-col">
         <label>Upload new contact photo?</label>
         <input
@@ -68,34 +67,13 @@ function EditEmployeeForm({
         />
       </div>
       <div className="flex flex-col">
-        <label>First Name</label>
+        <label>Name</label>
         <input
           className="flex items-center justify-between bg-white rounded-lg shadow-md w-64 p-2 mb-1"
           type="text"
-          value={firstname}
+          value={name}
           onChange={onChange}
-          name="firstname"
-        />
-      </div>
-      <div className="flex flex-col">
-        <label>Middle Name</label>
-        <input
-          className="flex items-center justify-between bg-white rounded-lg shadow-md w-64 p-2 mb-1"
-          type="text"
-          value={middlename}
-          onChange={onChange}
-          name="middlename"
-        />
-      </div>
-
-      <div className="flex flex-col">
-        <label>Last Name</label>
-        <input
-          className="flex items-center justify-between bg-white rounded-lg shadow-md w-64 p-2 mb-1"
-          type="text"
-          value={lastname}
-          onChange={onChange}
-          name="lastname"
+          name="name"
         />
       </div>
 
@@ -144,11 +122,13 @@ function EditEmployeeForm({
           name="dob"
         />
       </div>
-      <button className="bg-slate-500 py-2 text-white font-bold" type="submit">
+      </div>
+      
+      <button className="bg-purple-500 py-2 text-white font-bold" type="submit">
         Save
       </button>
       <button
-        className="bg-slate-500 py-2 text-white font-bold"
+        className="bg-purple-500 py-2 text-white font-bold"
         type="button"
         onClick={onCancel}
       >

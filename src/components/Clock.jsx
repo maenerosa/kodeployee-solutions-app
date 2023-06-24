@@ -12,9 +12,9 @@ function Clock() {
     });
   
     return (
-      <div className="absolute top-3 right-10  ">
+      <div className="absolute bottom-3 right-10  ">
         <div>
-          <h1 className="text-purple-600 text-sm font-bold text-center leading-tight mt-2">{time}</h1>
+          <h1 className="text-purple-600 text-sm font-bold text-center leading-tight mr-14">{time}</h1>
           <h2 className="text-purple-600 text-sm font-bold text-center leading-tight mt-00">{moment().format("dddd, MMMM D YYYY")}</h2>  
         </div>
    

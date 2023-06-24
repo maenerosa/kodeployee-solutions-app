@@ -86,7 +86,7 @@ function LoginForm({ user, setUser }) {
         </div>
 
         <p className="mt-8 text-small font-bold text-center text-gray-700">
-          Don't have an account?
+          Don't have an account?{" "}
           <Link
             to="/register"
             className="text-small font-bold  text-purple-600 hover:underline"

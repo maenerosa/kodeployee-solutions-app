@@ -44,6 +44,7 @@ function deleteEmployee(id) {
 export default {
   getEmployees,
   createEmployee,
+  updateEmployee,
   deleteEmployee,
   setToken,
 };

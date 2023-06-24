@@ -6,13 +6,9 @@ function AddEmployeeForm({
   setLoading,
   newPhoto,
   setNewPhoto,
-  showModal,
-  closeModal,
 }) {
   const { employees, setEmployees } = useContext(EmployeeContext);
-  const [newFirstName, setNewFirstName] = useState("");
-  const [newMiddleName, setNewMiddleName] = useState("");
-  const [newLastName, setNewLastName] = useState("");
+  const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
   const [newEmail, setNewEmail] = useState("");
   const [newGender, setNewGender] = useState("");
@@ -29,9 +25,7 @@ function AddEmployeeForm({
     setLoading(true);
 
     const newEmployeeData = new FormData();
-    newEmployeeData.append("firstname", newFirstName);
-    newEmployeeData.append("middlename", newMiddleName);
-    newEmployeeData.append("lastname", newLastName);
+    newEmployeeData.append("name", newName);
     newEmployeeData.append("number", newNumber);
     newEmployeeData.append("email", newEmail);
     newEmployeeData.append("gender", newGender);
@@ -43,32 +37,28 @@ function AddEmployeeForm({
       .then((returnedEmployee) => {
         setEmployees([...employees].concat(returnedEmployee));
         fileInputRef.current.value = null;
-        setNewFirstName("");
-        setNewMiddleName("");
-        setNewLastName("");
+        setNewName("");
         setNewNumber("");
         setNewEmail("");
         setNewGender("");
         setNewDOB("");
 
-        closeModal();
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
 
-    closeModal();
   };
 
   return (
-    <div className={`modalContainer ${showModal ? "block" : "hidden"}`}>
+    <div className="fixed bottom-3 right-10 top-24 z-50">
       <form
         onSubmit={addEmployee}
-        className="flex flex-col gap-4 p-4 border-solid border-2 border-slate-500 md:max-w-xl md:mx-auto"
+        className="flex flex-col gap-4 p-4 border-solid border-2 border-slate-500  m-auto rounded-lg shadow-md"
       >
         <div className="flex flex-col">
           <label>Upload contact photo</label>
           <input
-            className="border-solid border-2 border-slate-500 p-2"
+            className="border-solid border-2 border-slate-500 p-2 w-64"
             type="file"
             accept="image/*"
             ref={fileInputRef}
@@ -76,36 +66,16 @@ function AddEmployeeForm({
           />
         </div>
         <div className="flex flex-col">
-          <label>First Name</label>
+          <label>Name</label>
           <input
             className="flex items-center justify-between bg-white rounded-lg shadow-md w-64 p-2 mb-1"
             type="text"
-            value={newFirstName}
-            onChange={(event) => setNewFirstName(event.target.value)}
-            placeholder="Enter First Name"
+            value={newName}
+            onChange={(event) => setNewName(event.target.value)}
+            placeholder="Enter Name"
           />
         </div>
-        <div className="flex flex-col">
-          <label>Middle Name</label>
-          <input
-            className="flex items-center justify-between bg-white rounded-lg shadow-md w-64 p-2 mb-1"
-            type="text"
-            value={newMiddleName}
-            onChange={(event) => setNewMiddleName(event.target.value)}
-            placeholder="Enter Middle Name"
-          />
-        </div>
-
-        <div className="flex flex-col">
-          <label>Last Name</label>
-          <input
-            className="flex items-center justify-between bg-white rounded-lg shadow-md w-64 p-2 mb-1"
-            type="text"
-            value={newLastName}
-            onChange={(event) => setNewLastName(event.target.value)}
-            placeholder="Enter First Name"
-          />
-        </div>
+       
 
         <div className="flex flex-col">
           <label>Phone Number</label>
@@ -149,7 +119,7 @@ function AddEmployeeForm({
         <div className="flex flex-col">
           <label>Birthday</label>
           <input
-            className="flex items-center justify-between bg-white rounded-lg shadow-md w-64 p-2 mb-2"
+            className="flex items-center justify-between bg-white rounded-lg shadow-md w-96 p-2 mb-2"
             type="date"
             value={newDOB}
             onChange={(event) => setNewDOB(event.target.value)}
@@ -161,14 +131,6 @@ function AddEmployeeForm({
           type="submit"
         >
           Add
-        </button>
-
-        <button
-          className="bg-slate-500 py-2 text-white font-bold"
-          type="button"
-          onClick={closeModal}
-        >
-          Cancel
         </button>
       </form>
     </div>

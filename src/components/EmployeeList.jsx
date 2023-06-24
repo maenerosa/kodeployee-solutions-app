@@ -31,52 +31,34 @@ function EmployeeList({ setLoading, setEditEmployee }) {
   };
 
   return (
-    <ul className="border-solid border-2 border-slate-500 p-4">
+    <ul className=" grid grid-cols-3 items-center border-2 border-white rounded-lg w-1/2 mx-20 my-10 mt-10 p-4 text-white shadow-lg shadow-purple-400/50">
       {employees.map((employee) => (
-        <thead>
-          <tr key={employee.id} className="flex items-center justify-between">
-            <th class="py-2 px-4 bg-gray-100 border-b">Employee Photo</th>
-            <th class="py-2 px-4 bg-gray-100 border-b">First Name</th>
-            <th class="py-2 px-4 bg-gray-100 border-b">Middle Name</th>
-            <th class="py-2 px-4 bg-gray-100 border-b">Last Name</th>
-            <th class="py-2 px-4 bg-gray-100 border-b">Contact Number</th>
-            <th class="py-2 px-4 bg-gray-100 border-b">Email</th>
-            <th class="py-2 px-4 bg-gray-100 border-b">Gender</th>
-            <th class="py-2 px-4 bg-gray-100 border-b">Birthdate</th>
-            <th class="py-2 px-4 bg-gray-100 border-b">Action</th>
-          </tr>
-
-          <tbody>
-            <tr>
-              <td class="py-2 px-4 border-b">
-                {" "}
-                <img
-                  src={employee.photoInfo.url}
-                  alt="Contact photo"
-                  className="w-10"
-                />
-              </td>
-              <td class="py-2 px-4 border-b">{employee.firstname}</td>
-              <td class="py-2 px-4 border-b"> {employee.middlename}</td>
-              <td class="py-2 px-4 border-b">{employee.lastname}</td>
-              <td class="py-2 px-4 border-b">{employee.number}</td>
-              <td class="py-2 px-4 border-b">{employee.email}</td>
-              <td class="py-2 px-4 border-b">{employee.gender}</td>
-              <td class="py-2 px-4 border-b"> {employee.dob}</td>
-              <td class="py-2 px-4 border-b">
-                {" "}
-                <FaUserEdit
-                  className="hover: cursor-pointer"
-                  onClick={() => editEmployee(employee)}
-                />
-                <FaTrashAlt
-                  className="hover: cursor-pointer"
-                  onClick={() => deleteEmployee(employee.id)}
-                />
-              </td>
-            </tr>
-          </tbody>
-        </thead>
+        <li key={employee.id} className="grid grid-rows-4 grid-flow-col h-52 w-52 file:justify-between text-xs text-purple-700 border border-gray-300 rounded-lg">
+          <div className="p-2">
+            <img
+              src={employee.photoInfo.url}
+              alt="Contact photo"
+              className="w-10 mb-2"
+            />
+            <div className="">
+              <p className="font-semibold">{employee.name}</p>
+              <p className="text-gray-400">{employee.number}</p>
+              <p className="text-gray-400">{employee.email}</p>
+              <p className="text-gray-400">{employee.gender}</p>
+              <p className="text-gray-400">{employee.dob}</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 justify items-center mt-2 ml-32">
+          <FaUserEdit
+              className="hover: cursor-pointer"
+              onClick={() => editEmployee(employee)}
+            />
+            <FaTrashAlt
+              className="hover: cursor-pointer"
+              onClick={() => deleteEmployee(employee.id)}
+            />
+        </div>
+        </li>
       ))}
     </ul>
   );
