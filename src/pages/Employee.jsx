@@ -8,15 +8,15 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
-function Employee({ user, setUser }) {
+function Employee({ user}) {
   const { loading, setLoading } = useContext(LoadingContext);
   const [editEmployee, setEditEmployee] = useState(null);
   const [newPhoto, setNewPhoto] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!user) navigate("");
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (!user) navigate("");
+  // }, [user, navigate]);
 
   if (loading) {
     return (
