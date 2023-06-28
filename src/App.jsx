@@ -6,8 +6,8 @@ import LoadingContext from "./features/LoadingContext";
 import employeeService from "./services/employeeService";
 import Employee from "./pages/Employee";
 import LoginForm from "./components/LoginForm";
-import Dashboard from "./components/Dashboard";
 import RegisterForm from "./components/RegisterForm";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -30,22 +30,20 @@ function App() {
     <div className="flex flex-col gap-4 p-4">
       <EmployeeContext.Provider value={{ employees, setEmployees }}>
         <LoadingContext.Provider value={{ loading, setLoading }}>
-    
-          <Routes> 
+          <Routes>
             <Route
-              path="/"
+              path="/login"
               element={<LoginForm user={user} setUser={setUser} />}
             />
-            <Route path="/dashboard" element={<Dashboard/>} />
+            <Route
+              path="/"
+              element={<Dashboard user={user} setUser={setUser} />}
+            />
             <Route
               path="/employee"
               element={<Employee user={user} setUser={setUser} />}
             />
-         <Route path="/register" element={<RegisterForm user={user} />} />
-            <Route
-              path="/logout"
-              element={<LoginForm user={user} setUser={setUser} />}
-            />
+            <Route path="/register" element={<RegisterForm user={user} />} />
           </Routes>
         </LoadingContext.Provider>
       </EmployeeContext.Provider>

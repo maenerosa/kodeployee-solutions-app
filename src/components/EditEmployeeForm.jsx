@@ -28,7 +28,7 @@ function EditEmployeeForm({
     newPhoto ? updatedEmployee.append("image", newPhoto) : null;
 
     employeeService
-      .updatedEmployee(id, updatedEmployee)
+      .updateEmployee(id, updatedEmployee)
       .then((updatedEmployee) => {
         setEmployees(
           employees.map((employee) =>
@@ -94,6 +94,7 @@ function EditEmployeeForm({
           className="flex items-center justify-between bg-white rounded-lg shadow-md w-64 p-2 mb-2"
           type="email"
           value={email}
+          onChange={onChange}
           name="email"
         />
       </div>
@@ -104,8 +105,9 @@ function EditEmployeeForm({
         <select
           className="flex flex-col"
           id="gender"
-          name="gender"
           value={gender}
+          onChange={onChange}
+          name="gender"
         >
           <option value=""> -Please Select- </option>
           <option value="male">Male</option>
@@ -119,6 +121,7 @@ function EditEmployeeForm({
           className="flex items-center justify-between bg-white rounded-lg shadow-md w-64 p-2 mb-2"
           type="date"
           value={dob}
+          onChange={onChange}
           name="dob"
         />
       </div>
