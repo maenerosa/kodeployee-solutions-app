@@ -36,11 +36,7 @@ function Navbar() {
         alt="Logo"
         className="logo object-scale-down h-20  w-40 top-0"
       />
-      <h1 className="text-gray-500 hover:text-gray-900">
-      Good {condition}! 
-      </h1>
-      
-
+      <h1 className="text-gray-500 hover:text-gray-900">Good {condition}!</h1>
       <Clock />
     </div>
   );

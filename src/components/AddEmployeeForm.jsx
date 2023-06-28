@@ -2,11 +2,7 @@ import { useState, useRef, useEffect, useContext } from "react";
 import EmployeeContext from "../features/EmployeeContext";
 import employeeService from "../services/employeeService";
 
-function AddEmployeeForm({
-  setLoading,
-  newPhoto,
-  setNewPhoto,
-}) {
+function AddEmployeeForm({ setLoading, newPhoto, setNewPhoto }) {
   const { employees, setEmployees } = useContext(EmployeeContext);
   const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
@@ -42,11 +38,9 @@ function AddEmployeeForm({
         setNewEmail("");
         setNewGender("");
         setNewDOB("");
-
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
-
   };
 
   return (
@@ -75,7 +69,6 @@ function AddEmployeeForm({
             placeholder="Enter Name"
           />
         </div>
-       
 
         <div className="flex flex-col">
           <label>Phone Number</label>
