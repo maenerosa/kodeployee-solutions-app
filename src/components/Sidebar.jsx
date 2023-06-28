@@ -1,15 +1,11 @@
 import Logo from "../assets/logo.png";
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
+import { useContext } from "react";
+import UserContext from "../features/UserContext";
 
-function Sidebar({ user, setUser }) {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!user) navigate("/dashboard");
-  }, [user, navigate]);
-
+function Sidebar() {
+  const { _, setUser } = useContext(UserContext);
   const handleLogout = () => {
     window.localStorage.removeItem("loggedEmployeeRecordsUser");
     setUser(null);

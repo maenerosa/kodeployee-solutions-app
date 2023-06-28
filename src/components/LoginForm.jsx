@@ -1,17 +1,19 @@
 import "../App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaFacebookSquare, FaGithubSquare, FaGoogle } from "react-icons/fa";
 import loginService from "../services/loginService";
 import employeeService from "../services/employeeService";
+import UserContext from "../features/UserContext";
 
-function LoginForm({ user, setUser }) {
+function LoginForm() {
+  const { user, setUser } = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user?.token) navigate("/");
+    if (user?.token) navigate("/dashboard");
   }, [user, navigate]);
 
   const handleLogin = (e) => {
@@ -61,10 +63,11 @@ function LoginForm({ user, setUser }) {
             />
           </div>
           <div className="mt-6">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover :bg-purple-600 focus:outline-none focus:bg-purple-600">
-              <Link to="/dashboard" className="text-blue-500">
-                Login
-              </Link>
+            <button
+              type="submit"
+              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover :bg-purple-600 focus:outline-none focus:bg-purple-600"
+            >
+              Login
             </button>
           </div>
         </form>

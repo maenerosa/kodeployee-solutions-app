@@ -5,7 +5,7 @@ import { FaFacebookSquare, FaGithubSquare, FaGoogle } from "react-icons/fa";
 import userService from "../services/userService";
 import LoadingSpinner from "./LoadingSpinner";
 
-function RegisterForm({ user}) {
+function RegisterForm({ user }) {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +13,7 @@ function RegisterForm({ user}) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user?.token) navigate("/");
+    if (user?.token) navigate("/dashboard");
   }, [user, navigate]);
 
   const handleRegistration = (e) => {
