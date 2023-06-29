@@ -6,12 +6,11 @@ import EditEmployeeForm from "../components/EditEmployeeForm";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../features/UserContext";
-import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 
 function Employee() {
   const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext);
+  const { user, _setUser } = useContext(UserContext);
   const { loading, setLoading } = useContext(LoadingContext);
   const [editEmployee, setEditEmployee] = useState(null);
   const [newPhoto, setNewPhoto] = useState(null);
@@ -65,7 +64,6 @@ function Employee() {
       <p className="fixed justify-between items-center text-sm my-4 bottom-0">
         {user?.name} is logged in{" "}
       </p>
-      <Sidebar />
       <Navbar />
     </div>
   );

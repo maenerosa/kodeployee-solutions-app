@@ -44,10 +44,10 @@ function AddEmployeeForm({ setLoading, newPhoto, setNewPhoto }) {
   };
 
   return (
-    <div className="fixed bottom-3 right-10 top-24 z-50">
+    <div className="fixed bottom-3 right-10 top-24 z-50 ">
       <form
         onSubmit={addEmployee}
-        className="flex flex-col gap-4 p-4 border-solid border-2 border-slate-500  m-auto rounded-lg shadow-md"
+        className="flex flex-col gap-4 p-4 border-solid border-1 border-slate-500  m-auto rounded-lg shadow-lg shadow-purple-400/50"
       >
         <div className="flex flex-col">
           <label>Upload contact photo</label>

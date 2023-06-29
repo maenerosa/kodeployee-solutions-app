@@ -35,8 +35,8 @@ function LoginForm() {
   };
 
   return (
-    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden ">
-      <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-gray-600/40 ring-2 ring-purple-600 lg:max-w-xl">
+    <div className=" p-2 md:relative flex flex-col justify-center min-h-screen overflow-hidden">
+      <div className="px-1 py-2 m-auto bg-white rounded-md shadow-xl shadow-gray-600/40 ring-2 ring-purple-600 md:w-3/4 lg:w-1/2 2xl:w-1/4 ">
         <img className="mx-auto w-40" src=" /logo.png" alt="logo" />
         <h1 className=" text -xl font-bold text-center text-purple-500 uppercase decoration-wavy">
           sign in
@@ -72,7 +72,7 @@ function LoginForm() {
           </div>
         </form>
 
-        <div className="relative flex items-center justify-center w-full mt-6 border border-t">
+        {/* <div className="relative flex items-center justify-center w-full mt-6 border border-t">
           <div className="absolute px-5 bg-white"> Or </div>
         </div>
         <div className="flex mt-4 gap-x-2">
@@ -86,7 +86,7 @@ function LoginForm() {
           <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset -1 focus:ring-violet-600">
             <FaGithubSquare size="1.5rem" />
           </button>
-        </div>
+        </div> */}
 
         <p className="mt-8 text-small font-bold text-center text-gray-700">
           Don't have an account?{" "}
