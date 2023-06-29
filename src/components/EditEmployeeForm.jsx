@@ -52,7 +52,7 @@ function EditEmployeeForm({
 
   return (
     <form
-      className="flex flex-col gap-4 p-4 border-solid border-2 border-slate-500 fixed bottom-3 right-10 top-24 rounded-lg w-1/5 h-3/4 shadow-md"
+      className="flex flex-col gap-4 p-4 border-solid border-1 border-slate-500 fixed bottom-3 right-10 top-24 rounded-lg w-1/5 h-3/4 shadow-lg shadow-purple-400/50"
       onSubmit={handleUpdate}
     >
       <div className="gap-4 flex flex-col">

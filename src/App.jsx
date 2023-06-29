@@ -5,6 +5,7 @@ import LoadingContext from "./features/LoadingContext";
 import employeeService from "./services/employeeService";
 import RouteSwitch from "./RouteSwitch";
 import UserContext from "./features/UserContext";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -24,7 +25,7 @@ function App() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4 p-4">
+    <div className="">
       <EmployeeContext.Provider value={{ employees, setEmployees }}>
         <LoadingContext.Provider value={{ loading, setLoading }}>
           <UserContext.Provider value={{ user, setUser }}>
